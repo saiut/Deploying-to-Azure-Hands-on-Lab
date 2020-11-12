@@ -1,0 +1,18 @@
+on: [push]
+name: 11121643LOGIN
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Log in with Azure
+        uses: azure/login@v1
+        with:
+          creds: '${{ secrets.AZURESECRETS }}'
+  # Deploy ARM template
+    - name: 11121643ARM
+      uses: azure/arm-deploy@v1
+      with:
+        subscriptionId: ${{ secrets.AZURESECRETS }}
+        resourceGroupName: ${{ secrets.AZURESECRETS }}
+        template: ./deploy-vm-as-domain-member.json
+        parameters: ./domain-member-parameters.json
