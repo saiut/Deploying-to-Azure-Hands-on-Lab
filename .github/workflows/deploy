@@ -1,0 +1,18 @@
+on: [push]
+name: Azure VM deploy
+jobs:
+  build-and-deploy:
+    steps:
+     # Log into Azure
+    - uses: azure/login@v1
+      with:
+        creds: ${{ secrets.HANDSON201112 }}
+
+      # Deploy ARM template
+    - name: Run ARM deploy
+      uses: azure/arm-deploy@v1
+      with:
+        subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
+        resourceGroupName: ${{ secrets.AZURE_RG }}
+        template: Hands-on-Lab/templates/deploy-vm-as-domain-member.json
+        parameters: Hands-on-Lab/templates/domain-member-parameters.json
