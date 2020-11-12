@@ -1,0 +1,35 @@
+az group deployment validate --parameters ""
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "virtualNetworkId": {
+            "value": "Vnet1"
+        },
+        "subnetname": {
+            "value": "subnet-2"
+        },
+        "virtualMachineName": {
+            "value": "suito-vm"
+        },
+        "windowsOSVersion": {
+            "value": "2019-Datacenter"
+        },
+        "virtualMachineSize": {
+            "value": "Standard_D2s_v3"
+        },
+        "domainToJoin": {
+            "value": "HANDSON.AZURE"
+        },
+        "domainUsername": {
+            "value": "domainAdmin"
+        },
+        "domainPassword": {
+            "value": "Password.1!!"
+        },
+        },
+        "adminPassword": {
+            "value": "Password.1!!"
+        },
+    }
+}
